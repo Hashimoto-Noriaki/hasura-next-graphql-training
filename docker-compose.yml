@@ -37,5 +37,16 @@ services:
       - db
       - hasura
 
+  reactnative:
+    build:
+      context: ./mobile
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081" # Metroバンドラーのポート
+    volumes:
+      - ./mobile:/app
+    stdin_open: true
+    tty: true
+
 volumes:
   postgres_data:
